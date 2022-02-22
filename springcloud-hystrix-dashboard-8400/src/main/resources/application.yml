@@ -1,0 +1,18 @@
+server:
+  port: 8400
+spring:
+  application:
+    name: springcloud-hystrix-dashboard
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8300/eureka/
+      #,http://localhost:8301/eureka/
